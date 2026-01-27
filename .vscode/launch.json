@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AegisApplication<aegis>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.chris.aegis.AegisApplication",
+            "projectName": "aegis",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
