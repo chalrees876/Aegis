@@ -50,6 +50,9 @@ public class Position {
      * Calculate current market value of this position
      */
     public BigDecimal getCurrentValue() {
+        if (quantity == null || purchasePrice == null || currentPrice == null) {
+            return BigDecimal.ZERO;
+        }
         return quantity.multiply(currentPrice);
     }
     
@@ -57,6 +60,9 @@ public class Position {
      * Calculate gain/loss on this position
      */
     public BigDecimal getUnrealizedGainLoss() {
+        if (quantity == null || purchasePrice == null || currentPrice == null) {
+            return BigDecimal.ZERO;
+        }
         BigDecimal initialValue = quantity.multiply(purchasePrice);
         BigDecimal currentValue = getCurrentValue();
         return currentValue.subtract(initialValue);
@@ -66,6 +72,9 @@ public class Position {
      * Calculate percentage return
      */
     public BigDecimal getReturnPercentage() {
+        if (quantity == null || purchasePrice == null || currentPrice == null) {
+            return BigDecimal.ZERO;
+        }
         BigDecimal initialValue = quantity.multiply(purchasePrice);
         BigDecimal gainLoss = getUnrealizedGainLoss();
         return gainLoss.divide(initialValue, 4, java.math.RoundingMode.HALF_UP);
