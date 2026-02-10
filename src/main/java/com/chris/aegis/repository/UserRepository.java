@@ -2,7 +2,7 @@ package com.chris.aegis.repository;
 
 import java.util.List;
 
-import com.chris.aegis.entity.User;
+import com.chris.aegis.model.User;
 
 public class UserRepository {
 

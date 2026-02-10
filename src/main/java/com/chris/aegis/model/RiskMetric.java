@@ -1,4 +1,4 @@
-package com.chris.aegis.entity;
+package com.chris.aegis.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
