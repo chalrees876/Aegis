@@ -1,5 +1,5 @@
 package com.chris.aegis.repository;
 
-public class PositionRepository {
+public class RiskMetricRepo {
     
 }

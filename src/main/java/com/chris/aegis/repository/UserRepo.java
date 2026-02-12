@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.chris.aegis.model.User;
 
-public class UserRepository {
+public class UserRepo {
 
     public List<User> findAll() {
         // TODO Auto-generated method stub

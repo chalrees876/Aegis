@@ -1,5 +1,5 @@
 package com.chris.aegis.repository;
 
-public class SecurityRepository {
+public class SecurityRepo {
     
 }

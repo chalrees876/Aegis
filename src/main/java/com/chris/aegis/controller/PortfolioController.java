@@ -2,22 +2,27 @@ package com.chris.aegis.controller;
 
 
 import java.util.List;
+
 import com.chris.aegis.service.PortfolioService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.chris.aegis.model.Portfolio;
 
 @RestController
-@RequestMapping("/portfolios")
+@RequestMapping("/api/portfolios")
+@CrossOrigin
 public class PortfolioController {
 
-    @Autowired
-    PortfolioService service;
+    private final PortfolioService service;
+
+    public PortfolioController(PortfolioService service) {
+        this.service = service;
+    };
 
     @GetMapping
     public List<Portfolio> getPortfolios(){
-        return service.getPortfolios();
+        return service.getAllPortfolios();
     }
 
     @GetMapping("/{portfolioId}")
@@ -26,13 +31,13 @@ public class PortfolioController {
     }
 
     @PostMapping
-    public void addPortfolio(@RequestBody Portfolio portfolio){
-        service.addPortfolio(portfolio);
+    public ResponseEntity<Portfolio> addPortfolio(@RequestBody Portfolio portfolio){
+        return service.addPortfolio(portfolio);
     }
 
     @PutMapping
-    public void updatePortfolio(@RequestBody Portfolio portfolio){
-        service.updatePortfolio(portfolio);
+    public ResponseEntity<Portfolio> updatePortfolio(@RequestBody Portfolio portfolio){
+        return service.update(portfolio);
     }
 
     @DeleteMapping("/{portfolioId}")
